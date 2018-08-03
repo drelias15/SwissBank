@@ -57,10 +57,5 @@ public class HomeController {
         model.addAttribute("accounts", accountRepository.findAll());
         return "balance";
     }
-    @RequestMapping("/transaction/{id}")
-    public String updateCourse(@PathVariable("id") long id, Model model){
-        model.addAttribute("account", accountRepository.findById(id).get());
-        return "depositform";
-    }
 
 }
