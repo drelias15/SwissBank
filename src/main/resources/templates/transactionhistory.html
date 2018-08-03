@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style the top navigation bar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        /* Style the topnav links */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+        /* Change color on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        /* Style the content */
+
+        /* Style the footer */
+        .footer {
+            background-color: #f1f1f1;
+            padding: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="topnav"><a href="/">Go to Account</a></div>
+<table border="2">
+    <tr>
+        <th>Account Number</th>
+        <th>Reason</th>
+        <th>Deposit Amount</th>
+        <th>Withdraw Amount</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="account : ${accounts}"}>
+        <td th:text="${account.accountNumber}"></td>
+        <td th:text="${account.reason}"></td>
+        <td th:text="${account.depostAmount}"></td>
+        <td th:text="${account.withdrawAmount}"></td>
+        <td th:text="${account.action}"></td>
+
+        <td>
+            <a th:href="balance">Balance</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

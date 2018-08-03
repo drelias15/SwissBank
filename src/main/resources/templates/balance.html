@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+<div class="topnav"><a href="/add">Go to Account</a></div>
+<table border="2">
+    <tr>
+        <th>Account Number</th>
+        <th>Balance</th>
+        <th>Action</th>
+
+    </tr>
+    <tr th:each="account : ${accounts}"}>
+        <td th:text="${account.accountNumber}"></td>
+        <td th:text="${account.depostAmount-account.withdrawAmount}"></td>
+        <td>
+
+            <a th:href="transaction">Transaction History</a>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>
